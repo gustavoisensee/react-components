@@ -3,6 +3,7 @@ import { TOGGLE } from './constant';
 const init = {
   open: false,
   notiType: 1, // 1-success, 2-warning, 3-error/fail,
+  title: '',
   message: '',
   vertical: 1, // 1-top, 2-center, 3-bottom
   horizontal: 2 // 1-left, 2-center, 3-right
@@ -14,6 +15,7 @@ const notification = (state = init, action) => {
       return Object.assign({}, state, {
         open: action.open,
         notiType: action.notiType,
+        title: action.title,
         message: action.message,
         vertical: action.vertical,
         horizontal: action.horizontal

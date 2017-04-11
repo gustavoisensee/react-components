@@ -10,13 +10,17 @@ const propTypes = {
 const MainLayout = ({ children }) => (
   <div className={style.content}>
     <header className={style.header}>
-      Web components
+      <h2>
+        Web components
+      </h2>
     </header>
     <div className={style.content__children}>
       {children}
     </div>
     <footer className={style.footer}>
-      Footer
+      <h4>
+        Web components created by @gustavoisensee
+      </h4>
     </footer>
   </div>
 );

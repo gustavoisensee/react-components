@@ -12,12 +12,12 @@ class Main extends Component {
   toggleNotification(vertical, horizontal) {
     const { toggle } = this.props;
     const notiType = 1; // 1-success
-    toggle(true, notiType, 'Type your message', vertical, horizontal);
+    toggle(true, notiType, 'Type your title', 'Type your message', vertical, horizontal);
   }
   render() {
     const vertical = {
       top: 1,
-      center: 2,
+      middle: 2,
       bottom: 3
     };
     const horizontal = {
@@ -27,8 +27,39 @@ class Main extends Component {
     };
     return (
       <div className={style.content__parent}>
+        <div className={style.content__filter}>
+          <div className={style.filter__first} htmlFor="top">
+            <input id="top" type="radio" name="positionNoti" defaultValue="1" checked />
+            <label htmlFor="top">Top</label>
+          </div>
+          <div className={style.filter} htmlFor="middle">
+            <input id="middle" type="radio" name="positionNoti" defaultValue="2" />
+            <label htmlFor="middle">Middle</label>
+          </div>
+          <div className={style.filter__last} htmlFor="bottom">
+            <input id="bottom" type="radio" name="positionNoti" defaultValue="3" />
+            <label htmlFor="bottom">Top</label>
+          </div>
+        </div>
+        <div className={style.content__filter}>
+          <div className={style.filter__first} htmlFor="success">
+            <input id="success" type="radio" name="typeNoti" defaultValue="1" checked />
+            <label htmlFor="success">Success</label>
+          </div>
+          <div className={style.filter} htmlFor="info">
+            <input id="info" type="radio" name="typeNoti" defaultValue="2" />
+            <label htmlFor="info">Info</label>
+          </div>
+          <div className={style.filter} htmlFor="warning">
+            <input id="warning" type="radio" name="typeNoti" defaultValue="3" />
+            <label htmlFor="warning">Warning</label>
+          </div>
+          <div className={style.filter__last} htmlFor="error">
+            <input id="error" type="radio" name="typeNoti" defaultValue="4" />
+            <label htmlFor="error">Error</label>
+          </div>
+        </div>
         <div className={style.content}>
-          <h2>Top</h2>
           <button
             className={style.btn}
             onClick={() => this.toggleNotification(vertical.top, horizontal.left)}
@@ -40,36 +71,6 @@ class Main extends Component {
           <button
             className={style.btn}
             onClick={() => this.toggleNotification(vertical.top, horizontal.right)}
-          >Right</button>
-        </div>
-        <div className={style.content}>
-          <h2>Middle</h2>
-          <button
-            className={style.btn}
-            onClick={() => this.toggleNotification(vertical.center, horizontal.left)}
-          >Left</button>
-          <button
-            className={style.btn}
-            onClick={() => this.toggleNotification(vertical.center, horizontal.center)}
-          >Center</button>
-          <button
-            className={style.btn}
-            onClick={() => this.toggleNotification(vertical.center, horizontal.right)}
-          >Right</button>
-        </div>
-        <div className={style.content}>
-          <h2>Bottom</h2>
-          <button
-            className={style.btn}
-            onClick={() => this.toggleNotification(vertical.bottom, horizontal.left)}
-          >Left</button>
-          <button
-            className={style.btn}
-            onClick={() => this.toggleNotification(vertical.bottom, horizontal.center)}
-          >Center</button>
-          <button
-            className={style.btn}
-            onClick={() => this.toggleNotification(vertical.bottom, horizontal.right)}
           >Right</button>
         </div>
 
