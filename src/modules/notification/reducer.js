@@ -2,10 +2,10 @@ import { TOGGLE } from './constant';
 
 const init = {
   open: false,
-  notiType: 1, // 1-success, 2-warning, 3-error/fail,
   title: '',
   message: '',
-  vertical: 1, // 1-top, 2-center, 3-bottom
+  notiType: 1, // 1-success, 2-info, 3-warning, 4-error/fail,
+  position: 1, // 1-top, 2-middle, 3-bottom
   horizontal: 2 // 1-left, 2-center, 3-right
 };
 
@@ -14,10 +14,10 @@ const notification = (state = init, action) => {
     case TOGGLE: {
       return Object.assign({}, state, {
         open: action.open,
-        notiType: action.notiType,
         title: action.title,
         message: action.message,
-        vertical: action.vertical,
+        notiType: action.notiType,
+        position: action.position,
         horizontal: action.horizontal
       });
     }

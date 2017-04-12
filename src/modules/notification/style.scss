@@ -21,21 +21,17 @@
   border-radius: 6px;
 }
 
-  .notification__top {
-    border-radius: 0 0 6px 6px;
-  }
-
-  .notification__bottom {
-    border-radius: 6px 6px 0 0;
-  }
-
 .title {
   display: flex;
   height: 40%;
   width: 100%;
   align-items: center;
-  border-bottom: 1px dashed #9ff1b9;
+  border-bottom: 1px dashed #dadada;
 }
+
+  .title__border__dark {
+    border-bottom: 1px dashed #636363;
+  }
 
   .title__span {
     width: 100%;
@@ -46,7 +42,7 @@
     background: transparent;
     background-color: #ccc;
     border-radius: 3px;
-    color: #fff;
+    color: #5d5d5d;
     height: 20px;
     width: 20px;
     border: 0;
@@ -58,7 +54,7 @@
     cursor: pointer;
   }
     .title__btn:active {
-      box-shadow: 0 !important;
+      box-shadow: none;
       transform: translate(1px, 1px);
     }
 
@@ -87,6 +83,7 @@
 
 .top {
   top: 0;
+  border-radius: 0 0 6px 6px;
 }
 
 .middle {
@@ -95,6 +92,7 @@
 
 .bottom {
   bottom: 0;
+  border-radius: 6px 6px 0 0;
 }
 
 .show {
@@ -104,12 +102,17 @@
 
 .success {
   @extend .notification;
-  background-color: #36d869;
+  background-color: #2dc15c;
+}
+
+.info {
+  @extend .notification;
+  background-color: #1aa5f3;
 }
 
 .warning {
   @extend .notification;
-  background-color: #fcff77;
+  background-color: #ffe854;
   color: #525252;
 }
 
@@ -120,6 +123,6 @@
 
 @media (max-width: 500px) {
   .notification {
-    height: 40px;
+    width: 60%;
   }
 }

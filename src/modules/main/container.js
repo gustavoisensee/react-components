@@ -1,13 +1,19 @@
 import { connect } from 'react-redux';
 import component from './component';
+import { toggle } from './../notification/action';
 import {
-  toggle
-} from './../notification/action';
+  changePositionNotification,
+  changeTypeNotification
+} from './action';
 
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({
+  notification: state.main
+});
 
 const mapDispatchToProps = ({
-  toggle
+  toggle,
+  changePositionNotification,
+  changeTypeNotification
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(component);

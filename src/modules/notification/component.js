@@ -4,10 +4,10 @@ import style from './style.scss';
 const defaultProps = {
   notification: {
     open: false,
-    notiType: 1, // 1-success, 2-warning, 3-error/fail,
+    notiType: 1, // 1-success, 2-info, 3-warning, 4-error/fail,
     title: '',
     message: '',
-    vertical: 1, // 1-top, 2-middle, 3-bottom
+    position: 1, // 1-top, 2-middle, 3-bottom
     horizontal: 2 // 1-left, 2-center, 3-right
   }
 };
@@ -18,10 +18,70 @@ const propTypes = {
     notiType: PropTypes.number,
     title: PropTypes.string,
     message: PropTypes.message,
-    vertical: PropTypes.number,
+    position: PropTypes.number,
     horizontal: PropTypes.number
   }),
   toggle: PropTypes.func.isRequired
+};
+
+const getClassByPosition = (position) => {
+  let classNameParent;
+  switch (position) {
+    case 1:
+      classNameParent = ` ${style.top}`;
+      break;
+    case 2:
+      classNameParent = ` ${style.middle}`;
+      break;
+    case 3:
+      classNameParent = ` ${style.bottom}`;
+      break;
+    default:
+      classNameParent = ` ${style.top}`;
+      break;
+  }
+  return classNameParent;
+};
+
+const getClassByHorizontal = (horizontal) => {
+  let classNameParent;
+  switch (horizontal) {
+    case 1:
+      classNameParent = ` ${style.left}`;
+      break;
+    case 2:
+      classNameParent = ` ${style.center}`;
+      break;
+    case 3:
+      classNameParent = ` ${style.right}`;
+      break;
+    default:
+      classNameParent = ` ${style.center}`;
+      break;
+  }
+  return classNameParent;
+};
+
+const getClassByNotiType = (notiType) => {
+  let className;
+  switch (notiType) {
+    case 1:
+      className = ` ${style.success}`;
+      break;
+    case 2:
+      className = ` ${style.info}`;
+      break;
+    case 3:
+      className = ` ${style.warning}`;
+      break;
+    case 4:
+      className = ` ${style.fail}`;
+      break;
+    default:
+      className = ` ${style.success}`;
+      break;
+  }
+  return className;
 };
 
 class Notification extends Component {
@@ -30,61 +90,25 @@ class Notification extends Component {
     toggle(false);
   }
   render() {
-    const { open, notiType, title, message, vertical, horizontal } = this.props.notification;
+    const { open, title, message, notiType, position, horizontal } = this.props.notification;
 
     let classNameParent = style.notification__container;
     let className = style.notification;
+    let classNameTitle = style.title;
     let component;
     if (open && message !== '') {
-      switch (vertical) {
-        case 1:
-          classNameParent += ` ${style.top}`;
-          break;
-        case 2:
-          classNameParent += ` ${style.middle}`;
-          break;
-        case 3:
-          classNameParent += ` ${style.bottom}`;
-          break;
-        default:
-          classNameParent += ` ${style.top}`;
-          break;
-      }
-
-      switch (horizontal) {
-        case 1:
-          classNameParent += ` ${style.left}`;
-          break;
-        case 2:
-          classNameParent += ` ${style.center}`;
-          break;
-        case 3:
-          classNameParent += ` ${style.right}`;
-          break;
-        default:
-          classNameParent += ` ${style.center}`;
-          break;
-      }
-
-      switch (notiType) {
-        case 1:
-          className += ` ${style.success} ${style.notification__top}`;
-          break;
-        case 2:
-          className += ` ${style.warning}`;
-          break;
-        case 3:
-          className += ` ${style.fail}`;
-          break;
-        default:
-          className += ` ${style.success}`;
-          break;
-      }
-
+      classNameParent += getClassByPosition(position);
+      classNameParent += getClassByHorizontal(horizontal);
       classNameParent += ` ${style.show}`;
+
+      className += getClassByPosition(position);
+      className += getClassByNotiType(notiType);
+
+      classNameTitle += (notiType === 3 ? ` ${style.title__border__dark}` : '');
+
       component = (
         <div className={className}>
-          <div className={style.title}>
+          <div className={classNameTitle}>
             <span className={style.title__span}>
               {title}&nbsp;
             </span>
