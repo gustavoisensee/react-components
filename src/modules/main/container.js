@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import component from './component';
 import {
   toggleNotification,
-  changePositionNotification,
+  changeVerticalNotification,
+  changeHorizontalNotification,
   changeTypeNotification
 } from './action';
 
@@ -12,7 +13,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = ({
   toggleNotification,
-  changePositionNotification,
+  changeVerticalNotification,
+  changeHorizontalNotification,
   changeTypeNotification
 });
 

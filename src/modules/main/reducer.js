@@ -1,6 +1,7 @@
 import {
   TOGGLE_NOTIFICATION,
-  CHANGE_POSITION_NOTIFICATION,
+  CHANGE_VERTICAL_NOTIFICATION,
+  CHANGE_HORIZONTAL_NOTIFICATION,
   CHANGE_TYPE_NOTIFICATION
 } from './constant';
 
@@ -10,7 +11,7 @@ const init = {
     title: '',
     message: '',
     notiType: 1, // 1-success, 2-info, 3-warning, 4-error/fail,
-    position: 1, // 1-top, 2-middle, 3-bottom
+    vertical: 1, // 1-top, 2-middle, 3-bottom
     horizontal: 2 // 1-left, 2-center, 3-right
   }
 };
@@ -24,13 +25,17 @@ const main = (state = init, action) => {
           title: action.title,
           message: action.message,
           notiType: action.notiType,
-          position: action.position,
+          vertical: action.vertical,
           horizontal: action.horizontal
         }
       });
     }
-    case CHANGE_POSITION_NOTIFICATION: {
-      const notification = Object.assign({}, state.notification, { position: action.position });
+    case CHANGE_VERTICAL_NOTIFICATION: {
+      const notification = Object.assign({}, state.notification, { vertical: action.vertical });
+      return Object.assign({}, state, { notification });
+    }
+    case CHANGE_HORIZONTAL_NOTIFICATION: {
+      const notification = Object.assign({}, state.notification, { horizontal: action.horizontal });
       return Object.assign({}, state, { notification });
     }
     case CHANGE_TYPE_NOTIFICATION: {

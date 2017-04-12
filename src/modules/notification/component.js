@@ -6,7 +6,7 @@ const defaultProps = {
   title: '',
   message: '',
   notiType: 1, // 1-success, 2-info, 3-warning, 4-error/fail,
-  position: 1, // 1-top, 2-middle, 3-bottom
+  vertical: 1, // 1-top, 2-middle, 3-bottom
   horizontal: 2 // 1-left, 2-center, 3-right
 };
 
@@ -15,14 +15,14 @@ const propTypes = {
   title: PropTypes.string,
   message: PropTypes.message,
   notiType: PropTypes.number,
-  position: PropTypes.number,
+  vertical: PropTypes.number,
   horizontal: PropTypes.number,
   toggle: PropTypes.func.isRequired
 };
 
-const getClassByPosition = (position) => {
+const getClassByVertical = (vertical) => {
   let classNameParent;
-  switch (position) {
+  switch (vertical) {
     case 1:
       classNameParent = ` ${style.top}`;
       break;
@@ -82,27 +82,29 @@ const getClassByNotiType = (notiType) => {
 
 class Notification extends Component {
   close() {
-    const { notiType, position, horizontal, toggle } = this.props;
-    toggle(false, '', '', notiType, position, horizontal);
+    const { notiType, vertical, horizontal, toggle } = this.props;
+    toggle(false, '', '', notiType, vertical, horizontal);
   }
   render() {
-    const { open, title, message, notiType, position, horizontal } = this.props;
+    const { open, title, message, notiType, vertical, horizontal } = this.props;
 
     let classNameParent = style.notification__container;
     let className = style.notification;
     let classNameTitle = style.title;
-    let component;
+
+    classNameParent += getClassByVertical(vertical);
     if (open && message !== '') {
-      classNameParent += getClassByPosition(position);
-      classNameParent += getClassByHorizontal(horizontal);
       classNameParent += ` ${style.show}`;
+    }
 
-      className += getClassByPosition(position);
-      className += getClassByNotiType(notiType);
+    className += getClassByVertical(vertical);
+    className += getClassByHorizontal(horizontal);
+    className += getClassByNotiType(notiType);
 
-      classNameTitle += (notiType === 3 ? ` ${style.title__border__dark}` : '');
+    classNameTitle += (notiType === 3 ? ` ${style.title__border__dark}` : '');
 
-      component = (
+    return (
+      <div className={classNameParent}>
         <div className={className}>
           <div className={classNameTitle}>
             <span className={style.title__span}>
@@ -119,12 +121,6 @@ class Notification extends Component {
             </span>
           </div>
         </div>
-      );
-    }
-
-    return (
-      <div className={classNameParent}>
-        {component}
       </div>
     );
   }
