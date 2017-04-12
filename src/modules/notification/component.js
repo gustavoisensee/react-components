@@ -2,25 +2,21 @@ import React, { PropTypes, Component } from 'react';
 import style from './style.scss';
 
 const defaultProps = {
-  notification: {
-    open: false,
-    notiType: 1, // 1-success, 2-info, 3-warning, 4-error/fail,
-    title: '',
-    message: '',
-    position: 1, // 1-top, 2-middle, 3-bottom
-    horizontal: 2 // 1-left, 2-center, 3-right
-  }
+  open: false,
+  title: '',
+  message: '',
+  notiType: 1, // 1-success, 2-info, 3-warning, 4-error/fail,
+  position: 1, // 1-top, 2-middle, 3-bottom
+  horizontal: 2 // 1-left, 2-center, 3-right
 };
 
 const propTypes = {
-  notification: PropTypes.shape({
-    open: PropTypes.bool,
-    notiType: PropTypes.number,
-    title: PropTypes.string,
-    message: PropTypes.message,
-    position: PropTypes.number,
-    horizontal: PropTypes.number
-  }),
+  open: PropTypes.bool,
+  title: PropTypes.string,
+  message: PropTypes.message,
+  notiType: PropTypes.number,
+  position: PropTypes.number,
+  horizontal: PropTypes.number,
   toggle: PropTypes.func.isRequired
 };
 
@@ -86,11 +82,11 @@ const getClassByNotiType = (notiType) => {
 
 class Notification extends Component {
   close() {
-    const { toggle } = this.props;
-    toggle(false);
+    const { notiType, position, horizontal, toggle } = this.props;
+    toggle(false, '', '', notiType, position, horizontal);
   }
   render() {
-    const { open, title, message, notiType, position, horizontal } = this.props.notification;
+    const { open, title, message, notiType, position, horizontal } = this.props;
 
     let classNameParent = style.notification__container;
     let className = style.notification;

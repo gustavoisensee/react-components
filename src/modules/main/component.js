@@ -1,28 +1,36 @@
 import React, { Component, PropTypes } from 'react';
 import style from './style.scss';
-import Notification from './../notification/container';
+import Notification from './../notification/component';
 
 const defaultProps = {
   notification: {
-    position: 1,
-    notiType: 1
+    open: false,
+    title: '',
+    message: '',
+    notiType: 1, // 1-success, 2-info, 3-warning, 4-error/fail,
+    position: 1, // 1-top, 2-middle, 3-bottom
+    horizontal: 2 // 1-left, 2-center, 3-right
   }
 };
 
 const propTypes = {
   notification: PropTypes.shape({
+    open: PropTypes.bool,
+    title: PropTypes.string,
+    message: PropTypes.message,
+    notiType: PropTypes.number,
     position: PropTypes.number,
-    notiType: PropTypes.number
+    horizontal: PropTypes.number
   }),
-  toggle: PropTypes.func.isRequired,
+  toggleNotification: PropTypes.func.isRequired,
   changePositionNotification: PropTypes.func.isRequired,
   changeTypeNotification: PropTypes.func.isRequired
 };
 
 class Main extends Component {
   toggleNotification(horizontal) {
-    const { toggle, notification } = this.props;
-    toggle(true, 'Type your title', 'Type your message',
+    const { toggleNotification, notification } = this.props;
+    toggleNotification(true, 'Type your title', 'Type your message',
       notification.notiType, notification.position, horizontal);
   }
   changePositionNotification(e) {
@@ -36,9 +44,9 @@ class Main extends Component {
     changeTypeNotification(typeNoti);
   }
   render() {
-    const { notification } = this.props;
-    const { position, notiType } = notification;
-    const horizontal = {
+    const { notification, toggleNotification } = this.props;
+    const { open, title, message, notiType, position, horizontal } = notification;
+    const horizontalLocal = {
       left: 1,
       center: 2,
       right: 3
@@ -129,19 +137,27 @@ class Main extends Component {
         <div className={style.content}>
           <button
             className={style.btn}
-            onClick={() => this.toggleNotification(horizontal.left)}
+            onClick={() => this.toggleNotification(horizontalLocal.left)}
           >Left</button>
           <button
             className={style.btn}
-            onClick={() => this.toggleNotification(horizontal.center)}
+            onClick={() => this.toggleNotification(horizontalLocal.center)}
           >Center</button>
           <button
             className={style.btn}
-            onClick={() => this.toggleNotification(horizontal.right)}
+            onClick={() => this.toggleNotification(horizontalLocal.right)}
           >Right</button>
         </div>
 
-        <Notification />
+        <Notification
+          open={open}
+          title={title}
+          message={message}
+          notiType={notiType}
+          position={position}
+          horizontal={horizontal}
+          toggle={toggleNotification}
+        />
       </div>
     );
   }
