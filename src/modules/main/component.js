@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import style from './style.scss';
 import Notification from './../notification/component';
+import RadioButton from './../radiobutton/component';
 
 const defaultProps = {
   notification: {
@@ -50,9 +51,30 @@ class Main extends Component {
     changeTypeNotification(typeNoti);
   }
   render() {
-    const { notification, toggleNotification } = this.props;
+    const {
+      notification,
+      toggleNotification,
+      changeVerticalNotification,
+      changeHorizontalNotification,
+      changeTypeNotification
+    } = this.props;
     const { open, title, message, notiType, vertical, horizontal } = notification;
-
+    const verticalButtons = [
+      { id: 'top', name: 'vertical', text: 'Top', value: '1', extraClass: 'first' },
+      { id: 'middle', name: 'vertical', text: 'Middle', value: '2', extraClass: '' },
+      { id: 'bottom', name: 'vertical', text: 'Bottom', value: '3', extraClass: 'last' }
+    ];
+    const horizontalButtons = [
+      { id: 'left', name: 'horizontal', text: 'Left', value: '1', extraClass: 'first' },
+      { id: 'center', name: 'horizontal', text: 'Center', value: '2', extraClass: '' },
+      { id: 'right', name: 'horizontal', text: 'Right', value: '3', extraClass: 'last' }
+    ];
+    const notiTypeButtons = [
+      { id: 'success', name: 'typeNoti', text: 'Success', value: '1', extraClass: 'first' },
+      { id: 'info', name: 'typeNoti', text: 'Info', value: '2', extraClass: '' },
+      { id: 'warning', name: 'typeNoti', text: 'Warning', value: '3', extraClass: '' },
+      { id: 'error', name: 'typeNoti', text: 'Error', value: '4', extraClass: 'last' }
+    ];
     return (
       <div className={style.content__parent}>
         <div className={style.content__filter}>
@@ -60,39 +82,17 @@ class Main extends Component {
             <span>Vertical</span>
           </div>
           <div className={style.content__filter__buttons}>
-            <div className={style.filter__first} htmlFor="top">
-              <input
-                id="top"
-                type="radio"
-                name="vertical"
-                value="1"
-                checked={vertical === 1}
-                onChange={e => this.changeVerticalNotification(e)}
+            {verticalButtons.map(item =>
+              <RadioButton
+                id={item.id}
+                name={item.name}
+                text={item.text}
+                value={item.value}
+                selected={vertical}
+                extraClass={item.extraClass}
+                change={changeVerticalNotification}
               />
-              <label htmlFor="top">Top</label>
-            </div>
-            <div className={style.filter} htmlFor="middle">
-              <input
-                id="middle"
-                type="radio"
-                name="vertical"
-                value="2"
-                checked={vertical === 2}
-                onChange={e => this.changeVerticalNotification(e)}
-              />
-              <label htmlFor="middle">Middle</label>
-            </div>
-            <div className={style.filter__last} htmlFor="bottom">
-              <input
-                id="bottom"
-                type="radio"
-                name="vertical"
-                value="3"
-                checked={vertical === 3}
-                onChange={e => this.changeVerticalNotification(e)}
-              />
-              <label htmlFor="bottom">Bottom</label>
-            </div>
+            )}
           </div>
         </div>
         <div className={style.content__filter}>
@@ -100,39 +100,17 @@ class Main extends Component {
             <span>Horizontal</span>
           </div>
           <div className={style.content__filter__buttons}>
-            <div className={style.filter__first} htmlFor="left">
-              <input
-                id="left"
-                type="radio"
-                name="horizontal"
-                value="1"
-                checked={horizontal === 1}
-                onChange={e => this.changeHorizontalNotification(e)}
+            {horizontalButtons.map(item =>
+              <RadioButton
+                id={item.id}
+                name={item.name}
+                text={item.text}
+                value={item.value}
+                selected={horizontal}
+                extraClass={item.extraClass}
+                change={changeHorizontalNotification}
               />
-              <label htmlFor="left">Left</label>
-            </div>
-            <div className={style.filter} htmlFor="center">
-              <input
-                id="center"
-                type="radio"
-                name="horizontal"
-                value="2"
-                checked={horizontal === 2}
-                onChange={e => this.changeHorizontalNotification(e)}
-              />
-              <label htmlFor="center">Center</label>
-            </div>
-            <div className={style.filter__last} htmlFor="right">
-              <input
-                id="right"
-                type="radio"
-                name="horizontal"
-                value="3"
-                checked={horizontal === 3}
-                onChange={e => this.changeHorizontalNotification(e)}
-              />
-              <label htmlFor="right">Right</label>
-            </div>
+            )}
           </div>
         </div>
         <div className={style.content__filter}>
@@ -140,50 +118,17 @@ class Main extends Component {
             <span>Type</span>
           </div>
           <div className={style.content__filter__buttons}>
-            <div className={style.filter__first} htmlFor="success">
-              <input
-                id="success"
-                type="radio"
-                name="typeNoti"
-                value="1"
-                checked={notiType === 1}
-                onChange={e => this.changeTypeNotification(e)}
+            {notiTypeButtons.map(item =>
+              <RadioButton
+                id={item.id}
+                name={item.name}
+                text={item.text}
+                value={item.value}
+                selected={notiType}
+                extraClass={item.extraClass}
+                change={changeTypeNotification}
               />
-              <label htmlFor="success">Success</label>
-            </div>
-            <div className={style.filter} htmlFor="info">
-              <input
-                id="info"
-                type="radio"
-                name="typeNoti"
-                value="2"
-                checked={notiType === 2}
-                onChange={e => this.changeTypeNotification(e)}
-              />
-              <label htmlFor="info">Info</label>
-            </div>
-            <div className={style.filter} htmlFor="warning">
-              <input
-                id="warning"
-                type="radio"
-                name="typeNoti"
-                value="3"
-                checked={notiType === 3}
-                onChange={e => this.changeTypeNotification(e)}
-              />
-              <label htmlFor="warning">Warning</label>
-            </div>
-            <div className={style.filter__last} htmlFor="error">
-              <input
-                id="error"
-                type="radio"
-                name="typeNoti"
-                value="4"
-                checked={notiType === 4}
-                onChange={e => this.changeTypeNotification(e)}
-              />
-              <label htmlFor="error">Error</label>
-            </div>
+            )}
           </div>
         </div>
         <div className={style.content}>
@@ -192,7 +137,6 @@ class Main extends Component {
             onClick={() => this.toggleNotification()}
           >Notification</button>
         </div>
-
         <Notification
           open={open}
           title={title}

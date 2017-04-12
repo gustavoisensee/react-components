@@ -1,4 +1,3 @@
-$border_filter: 1px dashed #ccc;
 $animation_second: .5s;
 
 .content__parent {
@@ -26,37 +25,6 @@ $animation_second: .5s;
     width: 100%;
   }
 
-.filter {
-  border-top: $border_filter;
-  border-bottom: $border_filter;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  cursor: pointer;
-  transition: background-color $animation_second;
-}
-
-  .filter input, .filter label {
-    cursor: pointer;
-  }
-
-  .filter:hover {
-    background-color: #e0dfdf;
-    transition: background-color $animation_second;
-  }
-
-.filter__first {
-  @extend .filter;
-  border-left: $border_filter;
-  border-radius: 6px 0 0 6px;
-}
-
-.filter__last {
-  @extend .filter;
-  border-right: $border_filter;
-  border-radius: 0 6px 6px 0;
-}
 .content {
   @extend .content__parent;
   flex-direction: row;
