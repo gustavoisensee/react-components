@@ -7,7 +7,7 @@ const init = {
   menu: MENU_ITEMS
 };
 
-const main = (state = init, action) => {
+const menuPresenter = (state = init, action) => {
   switch (action.type) {
     case CHANGE_MENU_ITEMS: {
       const menus = Object.assign([], state.menu);
@@ -25,4 +25,4 @@ const main = (state = init, action) => {
   }
 };
 
-export default main;
+export default menuPresenter;

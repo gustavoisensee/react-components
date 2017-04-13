@@ -12,55 +12,9 @@ $animation_second: .5s;
   box-shadow: 1px -2px 5px -2px #7d7d7d;
 }
 
-.content__filter {
-  height: 106px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0 10px;
-}
-
-  .content__filter__span {
-    display: flex;
-    padding: 6px;
-  }
-
-  .content__filter__buttons {
-    display: flex;
-    width: 100%;
-  }
-
 .content {
   @extend .container;
   flex-direction: column;
   align-items: flex-start;
   height: 90%;
 }
-
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  width: 100px;
-  height: 50px;
-  background: transparent;
-  border: 0;
-  margin: 6px;
-  background-color: #24292e;
-  color: #fff;
-  border-radius: 3px;
-  box-shadow: 1px 2px 3px 1px #909090;
-  cursor: pointer;
-  transition: background-color $animation_second;
-}
-
-  .btn:hover {
-    background-color: #42484e;
-    transition: background-color $animation_second;
-  }
-
-  .btn:active {
-    box-shadow: 1px 1px 1px 0px #909090;
-    transform: translate(1px, 1px);
-  }

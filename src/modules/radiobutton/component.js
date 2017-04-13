@@ -23,8 +23,8 @@ const propTypes = {
 class RadioButton extends Component {
   change(e) {
     const { change } = this.props;
-    const vertical = parseInt(e.currentTarget.value, 10);
-    change(vertical);
+    const id = parseInt(e.currentTarget.value, 10);
+    change(id);
   }
   render() {
     const { id, name, text, value, selected, extraClass } = this.props;

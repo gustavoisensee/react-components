@@ -15,8 +15,19 @@ html, body {
     height: 100%;
   }
 
+h4 {
+  font-weight: 100;
+}
+
 *:focus {
   outline: none;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
 }
 
 .header {
@@ -32,8 +43,7 @@ html, body {
 .content {
   display: flex;
   width: 100%;
-  height: 100%;
-  flex-direction: column;
+  height: 85%;
 }
 
 .footer {
@@ -41,12 +51,6 @@ html, body {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 10%;
+  height: 5%;
   padding: 0 10px;
-}
-
-.content__children {
-  display: flex;
-  width: 100%;
-  height: 80%;
 }
