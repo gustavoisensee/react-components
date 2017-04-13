@@ -13,12 +13,20 @@ const propTypes = {
 
 const MenuPresenter = ({ menu, changeMenuItem }) => (
   <div className={style.container}>
-    {console.log(menu)}
-    Test Menu
-    <Menu
-      items={menu}
-      click={changeMenuItem}
-    />
+    <div className={style.title}>
+      <span>
+        Test Menu
+      </span>
+    </div>
+    <div className={style.menu}>
+      <Menu
+        items={menu}
+        click={changeMenuItem}
+      />
+    </div>
+    <div className={style.description}>
+      Description
+    </div>
   </div>
 );
 

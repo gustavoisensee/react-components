@@ -53,11 +53,16 @@ class NotificationPresenter extends Component {
 
     return (
       <div className={style.content}>
-        <div className={style.content__filter}>
-          <div className={style.content__filter__span}>
+        <div className={style.title}>
+          <span>
+            Notification
+          </span>
+        </div>
+        <div className={style.filters}>
+          <div className={style.filter__span}>
             <span>Vertical</span>
           </div>
-          <div className={style.content__filter__buttons}>
+          <div className={style.filter__buttons}>
             {VERTICAL_BUTTONS.map(item =>
               <RadioButton
                 id={item.id}
@@ -71,11 +76,11 @@ class NotificationPresenter extends Component {
             )}
           </div>
         </div>
-        <div className={style.content__filter}>
-          <div className={style.content__filter__span}>
+        <div className={style.filters}>
+          <div className={style.filter__span}>
             <span>Horizontal</span>
           </div>
-          <div className={style.content__filter__buttons}>
+          <div className={style.filter__buttons}>
             {HORIZONTAL_BUTTONS.map(item =>
               <RadioButton
                 id={item.id}
@@ -89,11 +94,11 @@ class NotificationPresenter extends Component {
             )}
           </div>
         </div>
-        <div className={style.content__filter}>
-          <div className={style.content__filter__span}>
+        <div className={style.filters}>
+          <div className={style.filter__span}>
             <span>Type</span>
           </div>
-          <div className={style.content__filter__buttons}>
+          <div className={style.filter__buttons}>
             {NOTI_TYPE_BUTTONS.map(item =>
               <RadioButton
                 id={item.id}
@@ -107,11 +112,14 @@ class NotificationPresenter extends Component {
             )}
           </div>
         </div>
-        <div className={style.content}>
+        <div className={style.buttons}>
           <button
             className={style.btn}
             onClick={() => this.toggleNotification()}
           >Notification</button>
+        </div>
+        <div className={style.description}>
+          Description
         </div>
         <Notification
           open={open}

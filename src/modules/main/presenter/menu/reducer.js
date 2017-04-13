@@ -1,5 +1,5 @@
 import {
-  CHANGE_MENU_ITEMS,
+  CHANGE_MENU_ITEMS_PRESENTER,
   MENU_ITEMS
 } from './constant';
 
@@ -9,7 +9,7 @@ const init = {
 
 const menuPresenter = (state = init, action) => {
   switch (action.type) {
-    case CHANGE_MENU_ITEMS: {
+    case CHANGE_MENU_ITEMS_PRESENTER: {
       const menus = Object.assign([], state.menu);
       for (let i = 0; i < menus.length; i += 1) {
         menus[i].selected = false;

@@ -6,29 +6,41 @@ $animation_second: .5s;
   height: 100%;
   flex-direction: row;
 }
-.content__filter {
-  height: 106px;
+
+.title {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.5em;
+}
+
+.filters {
+  width: 100%;
+  height: 80px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 
-  .content__filter__span {
+  .filter__span {
     display: flex;
-    padding: 6px;
+    padding: 6px 0;
   }
 
-  .content__filter__buttons {
+  .filter__buttons {
     display: flex;
     width: 100%;
   }
 
-.content {
-  @extend .container;
-  flex-direction: column;
+.buttons {
+  display: flex;
   align-items: flex-start;
-  height: 90%;
+  width: 100%;
+  margin: 20px;
+}
+
+.description {
+  margin: 20px;
 }
 
 .btn {
@@ -40,7 +52,6 @@ $animation_second: .5s;
   height: 50px;
   background: transparent;
   border: 0;
-  margin: 6px;
   background-color: #24292e;
   color: #fff;
   border-radius: 3px;

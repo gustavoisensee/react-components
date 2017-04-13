@@ -1,4 +1,4 @@
-export const CHANGE_MENU_ITEMS = 'CHANGE_MENU_ITEMS';
+export const CHANGE_MENU_ITEMS_PRESENTER = 'CHANGE_MENU_ITEMS_PRESENTER';
 
 export const MENU_ITEMS = [
   { id: 1, text: 'Menu 1', selected: true },
