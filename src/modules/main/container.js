@@ -4,18 +4,21 @@ import {
   toggleNotification,
   changeVerticalNotification,
   changeHorizontalNotification,
-  changeTypeNotification
+  changeTypeNotification,
+  changeMenuItem
 } from './action';
 
 const mapStateToProps = state => ({
-  notification: state.main.notification
+  notification: state.main.notification,
+  menu: state.main.menu
 });
 
 const mapDispatchToProps = ({
   toggleNotification,
   changeVerticalNotification,
   changeHorizontalNotification,
-  changeTypeNotification
+  changeTypeNotification,
+  changeMenuItem
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(component);

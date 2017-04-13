@@ -2,6 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import style from './style.scss';
 import Notification from './../notification/component';
 import RadioButton from './../radiobutton/component';
+import Menu from './../menu/component';
+import {
+  VERTICAL_BUTTONS,
+  HORIZONTAL_BUTTONS,
+  NOTI_TYPE_BUTTONS
+} from './constant';
 
 const defaultProps = {
   notification: {
@@ -11,7 +17,8 @@ const defaultProps = {
     notiType: 1, // 1-success, 2-info, 3-warning, 4-error/fail,
     vertical: 1, // 1-top, 2-middle, 3-bottom
     horizontal: 2 // 1-left, 2-center, 3-right
-  }
+  },
+  menu: []
 };
 
 const propTypes = {
@@ -23,10 +30,12 @@ const propTypes = {
     vertical: PropTypes.number,
     horizontal: PropTypes.number
   }),
+  menu: PropTypes.array,
   toggleNotification: PropTypes.func.isRequired,
   changeVerticalNotification: PropTypes.func.isRequired,
   changeHorizontalNotification: PropTypes.func.isRequired,
-  changeTypeNotification: PropTypes.func.isRequired
+  changeTypeNotification: PropTypes.func.isRequired,
+  changeMenuItem: PropTypes.func.isRequired
 };
 
 class Main extends Component {
@@ -53,89 +62,84 @@ class Main extends Component {
   render() {
     const {
       notification,
+      menu,
       toggleNotification,
       changeVerticalNotification,
       changeHorizontalNotification,
-      changeTypeNotification
+      changeTypeNotification,
+      changeMenuItem
     } = this.props;
     const { open, title, message, notiType, vertical, horizontal } = notification;
-    const verticalButtons = [
-      { id: 'top', name: 'vertical', text: 'Top', value: '1', extraClass: 'first' },
-      { id: 'middle', name: 'vertical', text: 'Middle', value: '2', extraClass: '' },
-      { id: 'bottom', name: 'vertical', text: 'Bottom', value: '3', extraClass: 'last' }
-    ];
-    const horizontalButtons = [
-      { id: 'left', name: 'horizontal', text: 'Left', value: '1', extraClass: 'first' },
-      { id: 'center', name: 'horizontal', text: 'Center', value: '2', extraClass: '' },
-      { id: 'right', name: 'horizontal', text: 'Right', value: '3', extraClass: 'last' }
-    ];
-    const notiTypeButtons = [
-      { id: 'success', name: 'typeNoti', text: 'Success', value: '1', extraClass: 'first' },
-      { id: 'info', name: 'typeNoti', text: 'Info', value: '2', extraClass: '' },
-      { id: 'warning', name: 'typeNoti', text: 'Warning', value: '3', extraClass: '' },
-      { id: 'error', name: 'typeNoti', text: 'Error', value: '4', extraClass: 'last' }
-    ];
+
     return (
-      <div className={style.content__parent}>
-        <div className={style.content__filter}>
-          <div className={style.content__filter__span}>
-            <span>Vertical</span>
-          </div>
-          <div className={style.content__filter__buttons}>
-            {verticalButtons.map(item =>
-              <RadioButton
-                id={item.id}
-                name={item.name}
-                text={item.text}
-                value={item.value}
-                selected={vertical}
-                extraClass={item.extraClass}
-                change={changeVerticalNotification}
-              />
-            )}
-          </div>
-        </div>
-        <div className={style.content__filter}>
-          <div className={style.content__filter__span}>
-            <span>Horizontal</span>
-          </div>
-          <div className={style.content__filter__buttons}>
-            {horizontalButtons.map(item =>
-              <RadioButton
-                id={item.id}
-                name={item.name}
-                text={item.text}
-                value={item.value}
-                selected={horizontal}
-                extraClass={item.extraClass}
-                change={changeHorizontalNotification}
-              />
-            )}
-          </div>
-        </div>
-        <div className={style.content__filter}>
-          <div className={style.content__filter__span}>
-            <span>Type</span>
-          </div>
-          <div className={style.content__filter__buttons}>
-            {notiTypeButtons.map(item =>
-              <RadioButton
-                id={item.id}
-                name={item.name}
-                text={item.text}
-                value={item.value}
-                selected={notiType}
-                extraClass={item.extraClass}
-                change={changeTypeNotification}
-              />
-            )}
-          </div>
+      <div className={style.container}>
+        <div className={style.content__menu}>
+          <Menu
+            items={menu}
+            click={changeMenuItem}
+          />
         </div>
         <div className={style.content}>
-          <button
-            className={style.btn}
-            onClick={() => this.toggleNotification()}
-          >Notification</button>
+          <div className={style.content__filter}>
+            <div className={style.content__filter__span}>
+              <span>Vertical</span>
+            </div>
+            <div className={style.content__filter__buttons}>
+              {VERTICAL_BUTTONS.map(item =>
+                <RadioButton
+                  id={item.id}
+                  name={item.name}
+                  text={item.text}
+                  value={item.value}
+                  selected={vertical}
+                  extraClass={item.extraClass}
+                  change={changeVerticalNotification}
+                />
+              )}
+            </div>
+          </div>
+          <div className={style.content__filter}>
+            <div className={style.content__filter__span}>
+              <span>Horizontal</span>
+            </div>
+            <div className={style.content__filter__buttons}>
+              {HORIZONTAL_BUTTONS.map(item =>
+                <RadioButton
+                  id={item.id}
+                  name={item.name}
+                  text={item.text}
+                  value={item.value}
+                  selected={horizontal}
+                  extraClass={item.extraClass}
+                  change={changeHorizontalNotification}
+                />
+              )}
+            </div>
+          </div>
+          <div className={style.content__filter}>
+            <div className={style.content__filter__span}>
+              <span>Type</span>
+            </div>
+            <div className={style.content__filter__buttons}>
+              {NOTI_TYPE_BUTTONS.map(item =>
+                <RadioButton
+                  id={item.id}
+                  name={item.name}
+                  text={item.text}
+                  value={item.value}
+                  selected={notiType}
+                  extraClass={item.extraClass}
+                  change={changeTypeNotification}
+                />
+              )}
+            </div>
+          </div>
+          <div className={style.content}>
+            <button
+              className={style.btn}
+              onClick={() => this.toggleNotification()}
+            >Notification</button>
+          </div>
         </div>
         <Notification
           open={open}
