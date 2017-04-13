@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import style from './style.scss';
 import NotificationPresenter from './presenter/notification/container';
 import MenuPresenter from './presenter/menu/container';
-import RadioButtonPresenter from './presenter/radiobutton/component';
+import RadioButtonPresenter from './presenter/radiobutton/container';
 import Menu from './../menu/component';
 
 const defaultProps = {

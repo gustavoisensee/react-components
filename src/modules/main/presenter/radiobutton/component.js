@@ -1,26 +1,45 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes } from 'react';
+import RadioButton from './../../../radiobutton/component';
 import style from './style.scss';
 
+import {
+  BUTTONS
+} from './constant';
+
 const defaultProps = {
-  menu: []
+  button: 0
 };
 
 const propTypes = {
-  menu: PropTypes.array
+  button: PropTypes.number,
+  changeRadioButton: PropTypes.func.isRequired,
 };
 
-class RadioButtonPresenter extends Component {
-  click() {
-    // do something
-  }
-  render() {
-    return (
-      <div className={style.container}>
-        Test RadioButton
-      </div>
-    );
-  }
-}
+const RadioButtonPresenter = ({ button, changeRadioButton }) => (
+  <div className={style.content}>
+    <div className={style.title}>
+      <span>
+        RadioButton
+      </span>
+    </div>
+    <div className={style.example}>
+      {BUTTONS.map(item =>
+        <RadioButton
+          id={item.id}
+          name={item.name}
+          text={item.text}
+          value={item.value}
+          selected={button}
+          extraClass={item.extraClass}
+          change={changeRadioButton}
+        />
+      )}
+    </div>
+    <div className={style.description}>
+      Description
+    </div>
+  </div>
+);
 
 RadioButtonPresenter.defaultProps = defaultProps;
 RadioButtonPresenter.propTypes = propTypes;
