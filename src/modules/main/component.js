@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import style from './style.scss';
 import NotificationPresenter from './presenter/notification/container';
 import MenuPresenter from './presenter/menu/container';
@@ -15,9 +16,8 @@ const propTypes = {
 };
 
 const Main = ({ menu, changeMenuItem }) => {
-  const menuSelected = menu.find(item => item.selected);
+  const menuSelected = menu.find(item => item.selected === true);
   let componentContent;
-
   switch (menuSelected.id) {
     case 1:
       componentContent = (<NotificationPresenter />);

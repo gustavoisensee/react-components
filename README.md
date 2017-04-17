@@ -7,7 +7,7 @@ The aim of this project is creating some react components to reuse in future.
 * GIT
 * Javascript (ES6)
 * Atom IDE
-* Libraries: React, Redux, Babel, Webpack, Jest, SASS, eslint and fetch.
+* Libraries: React, Redux, Babel, Webpack, Jest, SASS and eslint.
 
 # Run project
 * You need to have: NodeJS 6.10.0+, GIT, Terminal and a Browser Updated.
