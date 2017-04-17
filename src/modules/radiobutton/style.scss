@@ -32,3 +32,18 @@ $animation_second: .5s;
   border-right: $border_filter;
   border-radius: 0 6px 6px 0;
 }
+
+
+.element {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.radiobutton {
+  @extend .element;
+}
+
+.radiobutton__label {
+  @extend .element;
+}

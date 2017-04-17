@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import style from './style.scss';
 
 const defaultProps = {
@@ -13,7 +14,7 @@ const defaultProps = {
 const propTypes = {
   open: PropTypes.bool,
   title: PropTypes.string,
-  message: PropTypes.message,
+  message: PropTypes.string,
   notiType: PropTypes.number,
   vertical: PropTypes.number,
   horizontal: PropTypes.number,

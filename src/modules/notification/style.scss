@@ -5,7 +5,9 @@ $height_noti: 70px;
 }
 
 .notification__container {
+  z-index: -1;
   top: 0;
+  left: 0;
   display: flex;
   position: absolute;
   width: 100%;
@@ -46,12 +48,12 @@ $height_noti: 70px;
   .title__btn {
     background: transparent;
     background-color: #ccc;
-    border-radius: 3px;
+    border-radius: 4px;
     color: #5d5d5d;
     height: 20px;
     width: 20px;
     border: 0;
-    box-shadow: 2px 2px 1px 0px #717171;
+    box-shadow: 0px 2px 2px 0px #717171;
     margin: 0 6px;
     display: flex;
     align-items: center;
@@ -59,8 +61,8 @@ $height_noti: 70px;
     cursor: pointer;
   }
     .title__btn:active {
-      box-shadow: 1px 1px 1px 0px #717171;
-      transform: translate(1px, 1px);
+      box-shadow: 0px 1px 1px 0px #717171;
+      transform: translateY(1px);
     }
 
 .message {
@@ -108,6 +110,7 @@ $height_noti: 70px;
 }
 
 .show {
+  z-index: 1 !important;
   opacity: 1 !important;
   @extend .transition_config;
 }

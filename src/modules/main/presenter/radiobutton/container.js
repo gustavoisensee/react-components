@@ -1,17 +1,13 @@
 import { connect } from 'react-redux';
 import component from './component';
-import {
-  changeMenuItem,
-  toggleNotification
-} from './action';
+import { changeRadioButton } from './action';
 
 const mapStateToProps = state => ({
-  menu: state.main.menu
+  button: state.radioButtonPresenter.button
 });
 
 const mapDispatchToProps = ({
-  changeMenuItem,
-  toggleNotification
+  changeRadioButton
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(component);

@@ -1,9 +1,9 @@
 import {
-  CHANGE_MENU_ITEMS
+  CHANGE_MENU_ITEMS_PRESENTER
 } from './constant';
 
 const changeMenuItemModel = id => ({
-  type: CHANGE_MENU_ITEMS,
+  type: CHANGE_MENU_ITEMS_PRESENTER,
   id
 });
 export const changeMenuItem = id => dispatch =>

@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import style from './style.scss';
 
 const defaultProps = {
@@ -23,8 +24,8 @@ const propTypes = {
 class RadioButton extends Component {
   change(e) {
     const { change } = this.props;
-    const vertical = parseInt(e.currentTarget.value, 10);
-    change(vertical);
+    const id = parseInt(e.currentTarget.value, 10);
+    change(id);
   }
   render() {
     const { id, name, text, value, selected, extraClass } = this.props;
@@ -36,16 +37,17 @@ class RadioButton extends Component {
       className = style.filter__last;
     }
     return (
-      <div className={className} htmlFor={id}>
+      <div className={className}>
         <input
           id={id}
           type="radio"
           name={name}
           value={value}
           checked={checked}
+          className={style.radiobutton}
           onChange={e => this.change(e)}
         />
-        <label htmlFor={id}>
+        <label htmlFor={id} className={style.radiobutton__label}>
           {text}
         </label>
       </div>

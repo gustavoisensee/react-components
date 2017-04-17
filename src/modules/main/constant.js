@@ -1,4 +1,7 @@
-export const TOGGLE_NOTIFICATION = 'TOGGLE_NOTIFICATION';
-export const CHANGE_VERTICAL_NOTIFICATION = 'CHANGE_VERTICAL_NOTIFICATION';
-export const CHANGE_HORIZONTAL_NOTIFICATION = 'CHANGE_HORIZONTAL_NOTIFICATION';
-export const CHANGE_TYPE_NOTIFICATION = 'CHANGE_TYPE_NOTIFICATION';
+export const CHANGE_MENU_ITEMS = 'CHANGE_MENU_ITEMS';
+
+export const MENU_ITEMS = [
+  { id: 1, text: 'Notification', selected: true },
+  { id: 2, text: 'Menu', selected: false },
+  { id: 3, text: 'RadioButton', selected: false }
+];
