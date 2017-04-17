@@ -36,16 +36,17 @@ class RadioButton extends Component {
       className = style.filter__last;
     }
     return (
-      <div className={className} htmlFor={id}>
+      <div className={className}>
         <input
           id={id}
           type="radio"
           name={name}
           value={value}
           checked={checked}
+          className={style.radiobutton}
           onChange={e => this.change(e)}
         />
-        <label htmlFor={id}>
+        <label htmlFor={id} className={style.radiobutton__label}>
           {text}
         </label>
       </div>

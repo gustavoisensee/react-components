@@ -5,6 +5,7 @@ $height_noti: 70px;
 }
 
 .notification__container {
+  z-index: -1;
   top: 0;
   left: 0;
   display: flex;
@@ -109,6 +110,7 @@ $height_noti: 70px;
 }
 
 .show {
+  z-index: 1 !important;
   opacity: 1 !important;
   @extend .transition_config;
 }
