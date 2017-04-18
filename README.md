@@ -1,6 +1,8 @@
 # react-components
 The aim of this project is creating some react components to reuse in future.
 
+![alt tag](https://raw.githubusercontent.com/gustavoisensee/react-components/develop/src/images/main.png)
+
 
 # Technologies used
 * NodeJS 6.10.0
