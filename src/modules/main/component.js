@@ -4,6 +4,7 @@ import style from './style.scss';
 import NotificationPresenter from './presenter/notification/container';
 import MenuPresenter from './presenter/menu/container';
 import RadioButtonPresenter from './presenter/radiobutton/container';
+import FileUploadPresenter from './presenter/fileupload/container';
 import Menu from './../menu/component';
 
 const defaultProps = {
@@ -27,6 +28,9 @@ const Main = ({ menu, changeMenuItem }) => {
       break;
     case 3:
       componentContent = (<RadioButtonPresenter />);
+      break;
+    case 4:
+      componentContent = (<FileUploadPresenter />);
       break;
     default:
       componentContent = (<span>Something wrong happened!</span>);
