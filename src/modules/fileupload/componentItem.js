@@ -17,14 +17,25 @@ const propTypes = {
 
 class FileItem extends Component {
   remove(e) {
-    const { remove } = this.props;
-    remove();
+    e.preventDefault();
+    const { remove, item } = this.props;
+    remove(item.id);
   }
   render() {
     const { item } = this.props;
     return (
-      <div className={style.content}>
-        {item.text}
+      <div className={style.content__item}>
+        <div className={style.content__item__title}>
+          <span>
+            {item.text}
+          </span>
+        </div>
+        <div className={style.content__item__buttons}>
+          <button
+            className={style['btn-remove']}
+            onClick={e => this.remove(e)}
+          />
+        </div>
       </div>
     );
   }

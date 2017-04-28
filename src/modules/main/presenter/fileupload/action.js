@@ -1,12 +1,17 @@
 import {
-  UPLOAD_PRESENTER
+  UPLOAD_PRESENTER,
+  UPLOAD_REMOVE_PRESENTER,
+
 } from './constant';
 
-const uploadModel = text => ({
-  type: UPLOAD_PRESENTER,
-  text
-});
 export const upload = text => dispatch =>
-  dispatch(uploadModel(text));
+  dispatch({
+    type: UPLOAD_PRESENTER,
+    text
+  });
 
-export default upload;
+export const remove = id => dispatch =>
+  dispatch({
+    type: UPLOAD_REMOVE_PRESENTER,
+    id
+  });

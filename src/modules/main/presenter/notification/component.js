@@ -67,6 +67,7 @@ class NotificationPresenter extends Component {
             {VERTICAL_BUTTONS.map(item =>
               <RadioButton
                 id={item.id}
+                key={item.id}
                 name={item.name}
                 text={item.text}
                 value={item.value}
@@ -85,6 +86,7 @@ class NotificationPresenter extends Component {
             {HORIZONTAL_BUTTONS.map(item =>
               <RadioButton
                 id={item.id}
+                key={item.id}
                 name={item.name}
                 text={item.text}
                 value={item.value}
@@ -103,6 +105,7 @@ class NotificationPresenter extends Component {
             {NOTI_TYPE_BUTTONS.map(item =>
               <RadioButton
                 id={item.id}
+                key={item.id}
                 name={item.name}
                 text={item.text}
                 value={item.value}

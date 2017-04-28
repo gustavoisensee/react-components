@@ -10,9 +10,10 @@ const defaultProps = {
 const propTypes = {
   items: PropTypes.array,
   upload: PropTypes.func.isRequired,
+  remove: PropTypes.func.isRequired,
 };
 
-const FileUploadPresenter = ({ items, upload }) => (
+const FileUploadPresenter = ({ items, upload, remove }) => (
   <div className={style.content}>
     <div className={style.title}>
       <span>
@@ -23,6 +24,7 @@ const FileUploadPresenter = ({ items, upload }) => (
       <FileUpload
         items={items}
         upload={upload}
+        remove={remove}
       />
     </div>
     <div className={style.description}>

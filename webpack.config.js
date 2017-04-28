@@ -47,20 +47,20 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin('react.bundle', 'react.bundle.js'),
     // These plugins below could be run just in production, for optmization.
     // I did it here because I'd like to show how the files could be small.
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        unused: true,
-        dead_code: true,
-        warnings: false
-      }
-    }),
-    new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    })
+    // new webpack.optimize.OccurrenceOrderPlugin(),
+    // new webpack.optimize.DedupePlugin(),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     unused: true,
+    //     dead_code: true,
+    //     warnings: false
+    //   }
+    // }),
+    // new webpack.optimize.AggressiveMergingPlugin(),
+    // new webpack.DefinePlugin({
+    //   'process.env': {
+    //     NODE_ENV: JSON.stringify('production')
+    //   }
+    // })
   ],
 };

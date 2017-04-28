@@ -27,6 +27,7 @@ const RadioButtonPresenter = ({ button, changeRadioButton }) => (
       {BUTTONS.map(item =>
         <RadioButton
           id={item.id}
+          key={item.id}
           name={item.name}
           text={item.text}
           value={item.value}

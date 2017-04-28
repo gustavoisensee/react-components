@@ -9,24 +9,40 @@ const defaultProps = {
 
 const propTypes = {
   items: PropTypes.array,
-  upload: PropTypes.func.isRequired
+  upload: PropTypes.func.isRequired,
+  remove: PropTypes.func.isRequired
 };
 
 class File extends Component {
-  upload(e) {
+  fileChange(e) {
+    e.preventDefault();
     const { upload } = this.props;
-    upload();
+    const files = [...e.currentTarget.files];
+    files.forEach((file) => {
+      upload(file.name);
+    });
   }
   render() {
-    const { items } = this.props;
-    console.log(items);
+    const { items, remove } = this.props;
     return (
       <div className={style.content}>
-        <div className={style.content__input}>
-          input
+        <div className={`${style.content__input} ${style.btn}`}>
+          <span>Select file</span>
+          <input
+            type="file"
+            className={style.uploader}
+            multiple
+            onChange={e => this.fileChange(e)}
+          />
         </div>
         <div className={style.content__items}>
-          {items.map(item => <Item key={item.id} />)}
+          {items.map(item => (
+            <Item
+              key={item.id}
+              item={item}
+              remove={remove}
+            />
+          ))}
         </div>
       </div>
     );

@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import component from './component';
-import { upload } from './action';
+import { upload, remove } from './action';
 
 const mapStateToProps = state => ({
-  items: state.fileUploadPresenter.items
+  items: state.fileUploadPresenter
 });
 
 const mapDispatchToProps = ({
-  upload
+  upload,
+  remove
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(component);
