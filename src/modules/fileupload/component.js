@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Item from './componentItem';
+import { getFullDateTimeMinMilliseconds } from './../../utils/main';
 import style from './style.scss';
 
 const defaultProps = {
@@ -24,16 +25,20 @@ class File extends Component {
   }
   render() {
     const { items, remove } = this.props;
+    const id = getFullDateTimeMinMilliseconds();
     return (
       <div className={style.content}>
         <div className={`${style.content__input} ${style.btn}`}>
-          <span>Select file</span>
           <input
+            id={id}
             type="file"
             className={style.uploader}
             multiple
             onChange={e => this.fileChange(e)}
           />
+          <label htmlFor={id} className={style.uploader__title}>
+            Select file
+          </label>
         </div>
         <div className={style.content__items}>
           {items.map(item => (
