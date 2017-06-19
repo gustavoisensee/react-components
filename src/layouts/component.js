@@ -1,14 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
+import MainContainer from './../modules/main/container';
 import style from './style.scss';
 
-const defaultProps = {};
-
-const propTypes = {
-  children: PropTypes.element.isRequired
-};
-
-const MainLayout = ({ children }) => (
+const MainLayout = () => (
   <div className={style.container}>
     <header className={style.header}>
       <h2>
@@ -16,7 +11,7 @@ const MainLayout = ({ children }) => (
       </h2>
     </header>
     <div className={style.content}>
-      {children}
+      <Route path="*" component={MainContainer} />
     </div>
     <footer className={style.footer}>
       <h4>
@@ -25,8 +20,5 @@ const MainLayout = ({ children }) => (
     </footer>
   </div>
 );
-
-MainLayout.defaultProps = defaultProps;
-MainLayout.propTypes = propTypes;
 
 export default MainLayout;

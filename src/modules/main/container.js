@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import component from './component';
 import {
-  changeMenuItem,
-  toggleNotification
+  changeMenuItem
 } from './action';
 
 const mapStateToProps = state => ({
@@ -10,8 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = ({
-  changeMenuItem,
-  toggleNotification
+  changeMenuItem
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(component);

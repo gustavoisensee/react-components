@@ -20,7 +20,7 @@ module.exports = {
     publicPath: '/'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         include: path.join(__dirname, 'src'),
@@ -44,7 +44,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('react.bundle', 'react.bundle.js'),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'react.bundle',
+      filename: 'react.bundle.js'
+    }),
     // These plugins below could be run just in production, for optmization.
     // I did it here because I'd like to show how the files could be small.
     // new webpack.optimize.OccurrenceOrderPlugin(),

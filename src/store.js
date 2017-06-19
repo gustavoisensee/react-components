@@ -1,21 +1,20 @@
 import thunk from 'redux-thunk';
 import { createStore, compose, applyMiddleware } from 'redux';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { browserHistory } from 'react-router';
+import { routerMiddleware } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
 
 import reducersCombined from './modules/combinedReducers';
 
 // If you have a Redux extesion for Chrome.
 const enhacers = (window.devToolsExtension ? window.devToolsExtension() : f => f);
 
-const store = createStore(
+export const history = createHistory();
+
+export const store = createStore(
   reducersCombined,
-  compose(applyMiddleware(thunk), enhacers)
+  undefined,
+  compose(
+    applyMiddleware(thunk, routerMiddleware(history)),
+    enhacers
+  )
 );
-
-export const history = syncHistoryWithStore(
-  browserHistory,
-  store
-);
-
-export default store;

@@ -1,15 +1,15 @@
 import React from 'react';
-import { Router, Route } from 'react-router';
+import { Router, Route, Switch } from 'react-router-dom';
 
 import { history } from './store';
 import MainLayoutContainer from './layouts/container';
-import MainContainer from './modules/main/container';
 
-export default (
+const Routes = () => (
   <Router history={history}>
-    <Route component={MainLayoutContainer}>
-      <Route path="/" component={MainContainer} />
-      <Route path="*" component={MainContainer} />
-    </Route>
+    <Switch>
+      <Route component={MainLayoutContainer} />
+    </Switch>
   </Router>
 );
+
+export default Routes;
