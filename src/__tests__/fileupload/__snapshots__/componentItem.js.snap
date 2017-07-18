@@ -1,0 +1,17 @@
+exports[`FileUploadItem component test FileUploadItem component renders 1`] = `
+<div
+  className="content__item">
+  <div
+    className="content__item__title">
+    <span>
+      test
+    </span>
+  </div>
+  <div
+    className="content__item__buttons">
+    <button
+      className="btn-remove"
+      onClick={[Function]} />
+  </div>
+</div>
+`;

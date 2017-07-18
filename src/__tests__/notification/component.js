@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Notification from './../modules/notification/component';
+import Notification from './../../modules/notification/component';
 
 describe('Notification component test', () => {
   test('Notification component renders', () => {

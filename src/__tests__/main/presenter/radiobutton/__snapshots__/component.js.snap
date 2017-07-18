@@ -1,0 +1,66 @@
+exports[`Main/presenter/radiobutton component test Main/presenter/radiobutton component renders 1`] = `
+<div
+  className="content">
+  <div
+    className="title">
+    <span>
+      RadioButton
+    </span>
+  </div>
+  <div
+    className="example">
+    <div
+      className="filter__first">
+      <input
+        checked={false}
+        className="radiobutton"
+        id="1"
+        name="radiobutton"
+        onChange={[Function]}
+        type="radio"
+        value={1} />
+      <label
+        className="radiobutton__label"
+        htmlFor="1">
+        Test 1
+      </label>
+    </div>
+    <div
+      className="filter">
+      <input
+        checked={false}
+        className="radiobutton"
+        id="2"
+        name="radiobutton"
+        onChange={[Function]}
+        type="radio"
+        value={2} />
+      <label
+        className="radiobutton__label"
+        htmlFor="2">
+        Test 2
+      </label>
+    </div>
+    <div
+      className="filter__last">
+      <input
+        checked={false}
+        className="radiobutton"
+        id="3"
+        name="radiobutton"
+        onChange={[Function]}
+        type="radio"
+        value={3} />
+      <label
+        className="radiobutton__label"
+        htmlFor="3">
+        Test 3
+      </label>
+    </div>
+  </div>
+  <div
+    className="description">
+    Description
+  </div>
+</div>
+`;

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Menu from './../modules/menu/component';
+import Menu from './../../modules/menu/component';
 
 describe('Menu component test', () => {
   test('Menu component renders', () => {

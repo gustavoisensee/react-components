@@ -1,0 +1,21 @@
+exports[`FileUpload component test FileUpload component renders 1`] = `
+<div
+  className="content">
+  <div
+    className="content__input btn">
+    <input
+      className="uploader"
+      id="18620171113630"
+      multiple={true}
+      onChange={[Function]}
+      type="file" />
+    <label
+      className="uploader__title"
+      htmlFor="18620171113630">
+      Select file
+    </label>
+  </div>
+  <div
+    className="content__items" />
+</div>
+`;

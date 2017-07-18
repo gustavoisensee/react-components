@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Radiobutton from './../modules/radiobutton/component';
+import Radiobutton from './../../modules/radiobutton/component';
 
 describe('Radiobutton component test', () => {
   test('Radiobutton component renders', () => {

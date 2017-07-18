@@ -1,0 +1,11 @@
+exports[`MenuItem component test MenuItem component renders 1`] = `
+<div
+  className="container">
+  <input
+    className="btn-selected"
+    data-id={1}
+    onClick={[Function]}
+    type="button"
+    value="test" />
+</div>
+`;
