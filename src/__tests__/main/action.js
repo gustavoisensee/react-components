@@ -8,6 +8,6 @@ describe('Main actions sync', () => {
       type: types.CHANGE_MENU_ITEMS,
       id
     };
-    expect(actions.changeMenuItemModel(id)).toEqual(expectedAction);
+    expect(actions.changeMenuItem(id)).toEqual(expectedAction);
   });
 });

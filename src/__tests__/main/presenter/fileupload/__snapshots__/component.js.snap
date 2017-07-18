@@ -15,13 +15,13 @@ exports[`Main/presenter/fileupload component test Main/presenter/fileupload comp
         className="content__input btn">
         <input
           className="uploader"
-          id="18620171335450"
+          id="186201714551"
           multiple={true}
           onChange={[Function]}
           type="file" />
         <label
           className="uploader__title"
-          htmlFor="18620171335450">
+          htmlFor="186201714551">
           Select file
         </label>
       </div>
