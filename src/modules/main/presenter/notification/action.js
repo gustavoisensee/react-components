@@ -2,12 +2,12 @@ import {
   TOGGLE_NOTIFICATION,
   CHANGE_VERTICAL_NOTIFICATION,
   CHANGE_HORIZONTAL_NOTIFICATION,
-  CHANGE_TYPE_NOTIFICATION,
+  CHANGE_TYPE_NOTIFICATION
 } from './constant';
 
 let timer;
 
-const toggleNotificationModel = (open, title, message, notiType, vertical, horizontal) => ({
+export const toggleNotificationModel = (open, title, message, notiType, vertical, horizontal) => ({
   type: TOGGLE_NOTIFICATION,
   open,
   title,
@@ -16,32 +16,28 @@ const toggleNotificationModel = (open, title, message, notiType, vertical, horiz
   vertical,
   horizontal
 });
-export const toggleNotification = (open, title, message, notiType, vertical,
-  horizontal) => (dispatch) => {
-    dispatch(toggleNotificationModel(open, title, message, notiType, vertical, horizontal));
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      dispatch(toggleNotificationModel(false, '', '', notiType, vertical, horizontal));
-    }, (1000 * 90));
-  };
 
-const changeVerticalNotificationModel = vertical => ({
+export const toggleNotification = (open, title, message, notiType, vertical,
+  horizontal
+) => (dispatch) => {
+  dispatch(toggleNotificationModel(open, title, message, notiType, vertical, horizontal));
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    dispatch(toggleNotificationModel(false, '', '', notiType, vertical, horizontal));
+  }, (1000 * 90));
+};
+
+export const changeVerticalNotification = vertical => ({
   type: CHANGE_VERTICAL_NOTIFICATION,
   vertical
 });
-export const changeVerticalNotification = vertical => dispatch =>
-  dispatch(changeVerticalNotificationModel(vertical));
 
-const changeHorizontalNotificationModel = horizontal => ({
+export const changeHorizontalNotification = horizontal => ({
   type: CHANGE_HORIZONTAL_NOTIFICATION,
   horizontal
 });
-export const changeHorizontalNotification = horizontal => dispatch =>
-  dispatch(changeHorizontalNotificationModel(horizontal));
 
-const changeTypeNotificationModel = notiType => ({
+export const changeTypeNotification = notiType => ({
   type: CHANGE_TYPE_NOTIFICATION,
   notiType
 });
-export const changeTypeNotification = notiType => dispatch =>
-  dispatch(changeTypeNotificationModel(notiType));

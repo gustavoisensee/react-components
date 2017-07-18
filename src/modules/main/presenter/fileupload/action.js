@@ -4,14 +4,12 @@ import {
 
 } from './constant';
 
-export const upload = text => dispatch =>
-  dispatch({
-    type: UPLOAD_PRESENTER,
-    text
-  });
+export const upload = text => ({
+  type: UPLOAD_PRESENTER,
+  text
+});
 
-export const remove = id => dispatch =>
-  dispatch({
-    type: UPLOAD_REMOVE_PRESENTER,
-    id
-  });
+export const remove = id => ({
+  type: UPLOAD_REMOVE_PRESENTER,
+  id
+});
