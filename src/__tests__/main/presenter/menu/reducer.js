@@ -2,7 +2,7 @@ import reducer from './../../../../../src/modules/main/presenter/menu/reducer';
 import * as types from './../../../../../src/modules/main/presenter/menu/constant';
 
 describe('Main/Presenter/menu reducer', () => {
-  it('should return the initial state', () => {
+  test('should return the initial state', () => {
     const state = undefined;
     const action = {};
     const expectedState = {
@@ -11,7 +11,7 @@ describe('Main/Presenter/menu reducer', () => {
     expect(reducer(state, action)).toEqual(expectedState);
   });
 
-  it('should handle CHANGE_MENU_ITEMS_PRESENTER', () => {
+  test('should handle CHANGE_MENU_ITEMS_PRESENTER', () => {
     const state = {
       menu: [
         { id: 1, title: 'Title jest 1', selected: true },

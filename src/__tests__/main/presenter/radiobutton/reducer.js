@@ -2,7 +2,7 @@ import reducer from './../../../../../src/modules/main/presenter/radiobutton/red
 import * as types from './../../../../../src/modules/main/presenter/radiobutton/constant';
 
 describe('Main/Presenter/radiobutton reducer', () => {
-  it('should return the initial state', () => {
+  test('should return the initial state', () => {
     const state = undefined;
     const action = {};
     const expectedState = {
@@ -11,7 +11,7 @@ describe('Main/Presenter/radiobutton reducer', () => {
     expect(reducer(state, action)).toEqual(expectedState);
   });
 
-  it('should handle CHANGE_RADIOBUTTON_PRESENTER', () => {
+  test('should handle CHANGE_RADIOBUTTON_PRESENTER', () => {
     const state = {
       button: 1
     };
