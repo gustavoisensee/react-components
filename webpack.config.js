@@ -1,22 +1,14 @@
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
+  mode: 'development', // 'production'
   entry: {
-    app: './src/app.js',
-    'react.bundle': [
-      'react',
-      'react-dom',
-      'react-redux',
-      'react-router',
-      'react-router-redux',
-      'redux',
-      'redux-thunk',
-    ]
+    bundle: './src/app.js',
   },
   output: {
     path: path.join(__dirname, '/public'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: '/'
   },
   module: {
@@ -43,27 +35,23 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'react.bundle',
-      filename: 'react.bundle.js'
-    }),
-    // These plugins below could be run just in production, for optmization.
-    // I did it here because I'd like to show how the files could be small.
-    // new webpack.optimize.OccurrenceOrderPlugin(),
-    // new webpack.optimize.DedupePlugin(),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     unused: true,
-    //     dead_code: true,
-    //     warnings: false
-    //   }
-    // }),
-    // new webpack.optimize.AggressiveMergingPlugin(),
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     NODE_ENV: JSON.stringify('production')
-    //   }
-    // })
-  ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          chunks: 'initial',
+          minChunks: 2,
+          maxInitialRequests: 5, // The default limit is too small to showcase the effect
+          minSize: 0 // This is example is too small to create commons chunks
+        },
+        vendor: {
+          test: /node_modules/,
+          chunks: 'initial',
+          name: 'vendor',
+          priority: 10,
+          enforce: true
+        }
+      }
+    }
+  },
 };
