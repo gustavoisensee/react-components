@@ -21,9 +21,11 @@ $color_selected: #949494;
 
   .btn:hover {
     background-color: $color_selected;
+    color: #fff;
   }
 
 .btn-selected {
   @extend .btn;
   background-color: $color_selected;
+  color: #fff;
 }
