@@ -5,12 +5,18 @@ import Button from '../src/components/Button';
 
 storiesOf('Button', module)
   .add('Basic button', () => (
-    <Button text='Text' />
+    <div>
+      <Button text='Default button' />
+      <Button
+        text='Primary button'
+        className='Button Button_primary'
+      />
+    </div>
   ))
-  .add('Primary button with click', () => (
+  .add('Event click', () => (
     <Button
       text='Button click'
       className='Button Button_primary'
       onClick={action('button-click')}  
     />
-  )); 
+  ));

@@ -15,6 +15,7 @@
   padding: 0 1rem;
   outline: none;
   transition: background-color $animation_second;
+  margin: 0.5rem 0;
 
   &:active {
     transform: translateY(1px);
