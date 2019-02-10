@@ -1,0 +1,10 @@
+@import '../style.scss';
+
+.Input {
+  padding: 1rem;
+  padding: 0 0.5rem;
+  height: $element-height;
+  font-size: $font-size;
+  border: 1px solid $color-grey-light;
+  border-radius: 3px;
+}

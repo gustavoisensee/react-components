@@ -4,6 +4,7 @@ import { configureActions } from '@storybook/addon-actions';
 const loadStories = () => {
   require('../stories/Button.js');
   require('../stories/Select.js');
+  require('../stories/Input.js');
   // You can require as many stories as you need.
 }
 
