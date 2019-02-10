@@ -1,4 +1,0 @@
-exports[`Menu component test Menu component renders 1`] = `
-<div
-  className="container" />
-`;
