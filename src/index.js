@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+
+const App = () => (<div>Index</div>)
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
