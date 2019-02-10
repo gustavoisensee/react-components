@@ -1,0 +1,38 @@
+@import '../style.scss';
+
+.Button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 40px;
+  background: transparent;
+  border: 1px solid $color-grey-border;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: $font-size;
+  font-weight: normal;
+  padding: 0 1rem;
+  outline: none;
+  transition: background-color $animation_second;
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &_primary {
+    border: 0;
+    box-shadow: 0px 2px 10px 0px $color-grey-shadow;
+    background-color: $color-primary;
+    color: $color-white;
+  
+    &:hover {
+      background-color: $color-grey-hover;
+      transition: background-color $animation_second;
+    }
+  
+    &:active {
+      box-shadow: 0px 1px 1px 0px $color-grey-shadow;
+    }
+  }
+}

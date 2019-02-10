@@ -3,7 +3,6 @@
   "version": "2.0.0",
   "private": true,
   "dependencies": {
-    "@storybook/react": "^4.1.11",
     "node-sass": "^4.11.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
@@ -27,6 +26,8 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@storybook/addon-actions": "^4.1.11",
+    "@storybook/react": "^4.1.11",
     "babel-loader": "^8.0.5"
   }
 }
