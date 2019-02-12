@@ -96,3 +96,7 @@ typings/
 .history
 
 # End of https://www.gitignore.io/api/node,visualstudiocode
+
+### Custom setups
+# Ignore storybook static
+/storybook-static
