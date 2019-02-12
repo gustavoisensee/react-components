@@ -7,6 +7,7 @@
     "@storybook/addon-actions": "^4.1.11",
     "@storybook/react": "^4.1.11",
     "babel-loader": "^8.0.5",
+    "express": "^4.16.4",
     "http-server": "^0.11.1",
     "node-sass": "^4.11.0",
     "prop-types": "^15.6.2",
@@ -20,7 +21,7 @@
     "test:react": "react-scripts test",
     "start:storybook": "start-storybook -p 9001 -s .storybook",
     "build": "build-storybook -c .storybook",
-    "start": "http-server storybook-static -p 9001"
+    "start": "node index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
