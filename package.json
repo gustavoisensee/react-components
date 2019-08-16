@@ -14,7 +14,7 @@
     "react-scripts": "^3.1.1"
   },
   "scripts": {
-    "build": "build-storybook -s public",
+    "build": "build-storybook -c .storybook -o build/",
     "start": "start-storybook -p 9001 -s public",
     "build:react": "react-scripts build",
     "start:react": "react-scripts start",
