@@ -1,4 +1,7 @@
 # react-components
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/26d57731-c0c4-407f-bfd1-dad01f6a4833/deploy-status)](https://app.netlify.com/sites/react-components-v2/deploys)
+
 It is a small library which contains a few components in react for web development.
 
 ![alt tag](https://raw.githubusercontent.com/gustavoisensee/react-components/master/public/main.png)
