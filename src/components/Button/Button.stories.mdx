@@ -1,0 +1,25 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import Button from './Button';
+
+<Meta title="Example/Button" parameters={{ previewTabs: { canvas: { page: null }, docs: { previewSource: 'open' }}}} component={Button} />
+
+# Button
+
+## Props
+| Name | Type | Default Value | Description |
+|---|:---:|---:|---|
+| text | string | `Button` |-|
+| className | string | null |-|
+| any | any | null | these props will be spread to html button element |
+
+
+## Code Sample
+<Canvas>
+  <Story name="Playground" showCode>
+    <Fragment>
+      <Button text="Primary" className="Button_primary" onClick={action('primary-button')} />
+      <Button className="Button_secondary" onClick={action('secondary-button')} />
+    </Fragment>
+  </Story>
+</Canvas>

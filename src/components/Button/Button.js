@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 import './Button.scss';
 
-const Button = (props) => (
+const Button = ({ text = 'Button', className, ...rest }) => (
   <button
-    className='Button'
-    {...props}
-  >{props.text}</button>
+    className={`Button ${className}`}
+    {...rest}
+  >{text}</button>
 );
 
 export default memo(Button);
