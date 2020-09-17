@@ -14,5 +14,13 @@
       }
     ],
     "@babel/preset-react"
+  ],
+  "ignore": [
+    "__tests__",
+    "__mock__",
+    "__snapshots__",
+    "src/**/*.stories.js",
+    "src/**/*.test.js",
+    "src/**/*.mock.js"
   ]
 }

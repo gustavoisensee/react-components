@@ -1,12 +1,12 @@
 {
   "name": "@gustavoisensee/react-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "main": "dist/index.js",
   "scripts": {
     "storybook:build": "build-storybook -s public",
     "storybook:start": "start-storybook -p 6006 -s public",
-    "build": "rm -rf dist && NODE_ENV=production babel src/ --out-dir dist --ignore __tests__,__mock__,__snapshots__,src/**/*.stories.js,src/**/*.test.js,src/**/*.mock.js",
+    "build": "rm -rf dist && NODE_ENV=production babel src/ --out-dir dist --copy-files --no-copy-ignored",
     "test": "react-scripts test"
   },
   "eslintConfig": {
