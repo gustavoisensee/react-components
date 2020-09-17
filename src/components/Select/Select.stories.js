@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Select from '../src/components/Select';
+import Select from './Select';
 
 const options = [
   { value: 1, text: 'Option 1' },
@@ -11,6 +11,6 @@ const options = [
 storiesOf('Select', module)
   .add('Basic select', () => (
     <Select
-      options={options}  
+      options={options}
     />
   ));

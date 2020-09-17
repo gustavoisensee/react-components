@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import Button from '../src/components/Button';
+import Button from './Button';
 
 storiesOf('Button', module)
   .add('Basic button', () => (
@@ -17,6 +17,6 @@ storiesOf('Button', module)
     <Button
       text='Button click'
       className='Button Button_primary'
-      onClick={action('button-click')}  
+      onClick={action('button-click')}
     />
   ));

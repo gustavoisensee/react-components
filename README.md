@@ -1,7 +1,7 @@
 # react-components
 The aim of this project is to create some react components to reuse.
 
-![alt tag](https://raw.githubusercontent.com/gustavoisensee/react-components/develop/src/images/main.png)
+![alt tag](https://raw.githubusercontent.com/gustavoisensee/react-components/master/public/main.png)
 
 
 # Technologies used
@@ -14,10 +14,10 @@ The aim of this project is to create some react components to reuse.
 * Open your terminal, enter a folder of your choice. for example: cd /home/gustavo/github
 * Clone the project: git clone https://github.com/gustavoisensee/react-components.git
 * Enter a folder: `cd react-components`
-* Run: `npm install`
-* Run: `npm start`
-* Open it in your browser of your choice: http://localhost:3000
+* Run: `yarn install`
+* Run: `yarn storybook:start`
+* Open it in your browser of your choice: http://localhost:6006
 
 # Run tests
 * Make sure your have run: yarn or npm install before.
-* Run `yarn test` or `npm run test`
+* Run `yarn test`
